@@ -1,0 +1,49 @@
+dAPI - Application progaramming interface ,
+
+Client - The requester 
+Server - The Responder 
+
+A client may request a service or a data based on which the server respondes for the request. 
+
+In our Example, The client is the frontend application or a webpage. The server is the backend serivces. 
+
+Here, An API acts as a Intermediator !! 
+
+Real World Example : Waiter/Buttler/servant of a restaurant. We order food to a server(API) and he takes our order to the kitchen (Backend Server). The server does'nt care about the complexity of the dish or the procedure. He just acts as a mediator and serves us the dish which was prepared by the chef. 
+
+An API works exactly the same. Practical use case with Example : Everyapplication or webpage we are use in our day to day life has an API or uses an API. When we login into an application using a third party authorization like google or Facebook it makes an api request and the backend server serves the authentication token and the registration happens.   
+
+An API Gateway is a crucial component in a microservices architecture that acts as an intermediary between clients (such as web or mobile applications) and various backend services. Its primary role is to manage, optimize, and secure the interactions between these clients and the services they rely on. API Gateways provide a unified entry point for API consumers and offer various features to enhance the API ecosystem.
+
+Centralized Management: API Gateway provides a single point of entry for clients, making it easier to manage multiple APIs, their versions, and endpoints in one place.
+
+Security: It acts as a security layer, protecting backend services from unauthorized access and potential attacks.
+
+Traffic Control: API Gateway enables control over the flow of traffic, preventing overloading of backend services by implementing rate limiting and request throttling.
+
+Load Balancing: It distributes incoming requests to multiple instances of backend services to ensure even resource utilization and optimal performance.
+
+Protocol Translation: API Gateway can translate between different communication protocols, making it easier for clients using various technologies to interact with backend services.
+
+Caching: It can cache responses from backend services, reducing the need to repeatedly process identical requests.
+
+Analytics and Monitoring: API Gateway often includes analytics tools to track usage patterns, monitor performance, and gather insights for further optimization.
+
+TLS Termination: Terminate TLS/SSL connections at the gateway to ensure secure communication between clients and the gateway itself.
+
+Client Authentication: Authenticate clients before allowing access to APIs, ensuring only authorized parties can interact with the services.
+
+Rate Limiting: Control the rate at which clients can make requests to prevent overloading the backend services.
+
+Access Control: Define and enforce access policies to regulate which clients can access specific APIs and resources.
+
+Request Routing: Direct incoming requests to the appropriate backend services based on the requested endpoint.
+
+Authentication & SSO: Implement authentication mechanisms such as OAuth or JWT, and support Single Sign-On (SSO) for seamless user experiences across services.
+
+Kong and Konga:
+Kong is a widely used open-source API Gateway and Microservices Management Layer, known for its flexibility, performance, and extensive plugin system. It provides a scalable and customizable solution for managing API traffic.
+
+Konga is a complementary open-source web-based UI for managing Kong. It simplifies the configuration and management of Kong instances.
+
+
