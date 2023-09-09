@@ -1,4 +1,6 @@
-dAPI - Application progaramming interface ,
+API - Application progaramming interface ,
+
+set of rules and protocols that allows different software applications to communicate and interact with each other.
 
 Client - The requester 
 Server - The Responder 
@@ -6,6 +8,12 @@ Server - The Responder
 A client may request a service or a data based on which the server respondes for the request. 
 
 In our Example, The client is the frontend application or a webpage. The server is the backend serivces. 
+
+Request: An application or software component sends a request to the API, specifying what it needs. This request includes details like the desired action and any required parameters.
+
+Processing: The API processes the request, carrying out the requested action or retrieving the requested data. It uses predefined rules and protocols to understand and execute the request.
+
+Response: After processing, the API sends back a response to the requesting application. This response typically includes the requested data or the result of the action.
 
 Here, An API acts as a Intermediator !! 
 
@@ -45,5 +53,7 @@ Kong and Konga:
 Kong is a widely used open-source API Gateway and Microservices Management Layer, known for its flexibility, performance, and extensive plugin system. It provides a scalable and customizable solution for managing API traffic.
 
 Konga is a complementary open-source web-based UI for managing Kong. It simplifies the configuration and management of Kong instances.
+
+
 
 
