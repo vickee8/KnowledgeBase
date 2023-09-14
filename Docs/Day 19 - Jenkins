@@ -70,8 +70,12 @@ Before you begin, make sure you have the following:
    - Optionally, you can restrict the builds that can run on this node by specifying labels.
 
 7. **Launch Method**:
+
    - Choose how Jenkins should launch the agent:
-     - **Launch agent by connecting it to the master**: This option will require manual setup of the agent on the machine where you want it to run. Follow the instructions provided for setting up the agent manually.
+   
+     - **Launch agent by connecting it to the master**: 
+     This option will require manual setup of the agent on the machine where you want it to run. Follow the instructions provided for setting up the agent manually.
+     
      - **Launch agent via execution of command on the master**: This option allows you to execute a command on the agent machine to launch the agent. You'll need to specify the command to start the agent on the remote machine.
 
 8. **Save Node Configuration**:
