@@ -138,8 +138,25 @@ BASIC MYSQL COMMANDS
 4. **Inserting Data:**
    - To insert data into a table, you can use the `INSERT INTO` command:
      ```sql
-     INSERT INTO table_name (column1, column2, ...)
-     VALUES (value1, value2, ...);
+     INSERT INTO table_name  VALUES (value1, value2, ...); we should use "" for a string ////
+     
+     mysql> insert into Avengers values("IRONMAN", "JARVIS");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Avengers values("SPIDERMAN", "SPIDER SENSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Avengers values("THOR", "HAMMER");
+Query OK, 1 row affected (0.01 sec)
+
+
+| NAME      | POWER        |
++-----------+--------------+
+| IRONMAN   | JARVIS       |
+| SPIDERMAN | SPIDER SENSE |
+| THOR      | HAMMER       |
++-----------+--------------+
+
      ```
 
 5. **Querying Data:**
