@@ -1,0 +1,63 @@
+FOR CREATING A VPC
+
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+CREATING A SUBNET WITHIN A VPC
+
+aws ec2 create-subnet --vpc-id YOUR_VPC_ID --cidr-block 10.0.0.0/24
+
+CREATING A SECURITY GROUP
+
+aws ec2 create-security-group --group-name MySecurityGroup --description "My Security Group" --vpc-id YOUR_VPC_ID
+
+CONFIGURING SECURITY GROUP 
+
+aws ec2 authorize-security-group-ingress --group-id YOUR_SECURITY_GROUP_ID --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id YOUR_SECURITY_GROUP_ID --protocol tcp --port 80 --cidr 0.0.0.0/0
+
+FOR PROVISIONING AN EC2 INSTANCE 
+
+aws ec2 run-instances \
+    --image-id ami-xxxxxxxxxxxxxxxxx \
+    --instance-type t2.micro \
+    --count 1 \
+    --key-name your-key-pair-name \
+    --security-group-ids sg-xxxxxxxxx \
+    --subnet-id subnet-xxxxxxxx   # Specify the subnet ID within your VPC
+
+TAGGING AN EC2 INSTANCE 
+
+aws ec2 create-tags --resources YOUR_INSTANCE_ID --tags Key=Name,Value=MyInstance
+
+ALLOCATE ELASTIC IP
+
+aws ec2 allocate-address
+
+ASSOCIATE WITH EC2 INSTANCE 
+
+aws ec2 associate-address --instance-id YOUR_INSTANCE_ID --allocation-id YOUR_ALLOCATION_ID
+
+LIST RUNNING INSTANCES
+
+aws ec2 describe-instances --filters Name=instance-state-name,Values=running
+
+STOP AN INSTANCE 
+
+aws ec2 stop-instances --instance-ids YOUR_INSTANCE_ID
+
+START AN INSTANCE 
+
+aws ec2 start-instances --instance-ids YOUR_INSTANCE_ID
+
+REBOOT AN INSTANCE
+
+aws ec2 reboot-instances --instance-ids YOUR_INSTANCE_ID
+
+DESCRIBE AN INSTANCE 
+
+aws ec2 describe-instances --instance-ids YOUR_INSTANCE_ID
+
+TERMINATE EC2 INSTANCE
+
+aws ec2 terminate-instances --instance-ids YOUR_INSTANCE_ID
+
