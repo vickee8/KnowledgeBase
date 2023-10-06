@@ -1,0 +1,36 @@
+---
+- name: Configure User and SSH
+  hosts: your_target_host
+  become: yes  # This allows Ansible to run commands with sudo (root) privileges
+  
+  vars:
+    new_user_name: your_new_user  # Replace with the desired username
+    new_user_password: your_password  # Replace with the desired password
+    
+  tasks:
+    - name: Create a new user
+      user:
+        name: "{{ new_user_name }}"
+        password: "{{ new_user_password | password_hash('sha512') }}"  # Hash the password
+        state: present
+
+    - name: Add the user to the sudoers file
+      lineinfile:
+        path: /etc/sudoers
+        line: "{{ new_user_name }} ALL=(ALL) ALL"
+        validate: 'visudo -cf %s'
+
+    - name: Modify SSH configuration
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PasswordAuthentication'
+        line: 'PasswordAuthentication yes'
+      notify:
+        - Restart SSH service
+
+  handlers:
+    - name: Restart SSH service
+      service:
+        name: sshd
+        state: restarted
+

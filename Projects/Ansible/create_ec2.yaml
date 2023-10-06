@@ -1,0 +1,22 @@
+---
+- name: Create EC2 Instance
+  hosts: localhost  # You can run this playbook from your local machine
+
+  tasks:
+    - name: Launch EC2 instance
+      ec2:
+        key_name: mumbai
+        instance_type: t2.micro  # Replace with your desired instance type
+        image: ami-0f5ee92e2d63afc18  # Replace with the desired Amazon Machine Image (AMI) ID
+        region: ap-south-1  # Replace with your desired AWS region
+        count: 1  # Number of instances to launch
+        wait: yes
+        instance_tags:
+          Name: ubuntu  # Replace with a name for your instance
+        group_id: sg-00ccb9fad27ad2169  # Replace with the specific security group ID
+      register: ec2_instance
+
+    - name: Print instance information
+      debug:
+        var: ec2_instance
+
