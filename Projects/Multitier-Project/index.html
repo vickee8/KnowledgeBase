@@ -1,43 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Poll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Sharp black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #pollContainer {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #result p {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Animal Poll</h1>
-    <p>Please enter your name and select your favorite animal:</p>
-
-    <form id="pollForm">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="animal">Favorite Animal:</label>
-        <select id="animal" name="animal" required>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </select><br><br>
-
-        <button type="button" onclick="submitPoll()">Submit</button>
-    </form>
-
-    <div id="result" style="display: none;">
-        <p>Thank you for participating in the poll, <span id="userName"></span>!</p>
-        <p>Your favorite animal is: <span id="userAnimal"></span></p>
+    <div id="pollContainer">
+        <h1>Animal Poll</h1>
+        <p>Please enter your name and select your favorite animal:</p>
+        <form id="pollForm">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="animal">Favorite Animal:</label><br>
+            <select id="animal" name="animal" required>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+            </select><br><br>
+            <button type="button" onclick="submitPoll()">Submit</button>
+        </form>
+        <div id="result">
+            <p>Thank you for participating in the poll, <span id="userName"></span>!</p>
+            <p>Your favorite animal is: <span id="userAnimal"></span></p>
+        </div>
     </div>
 
     <script>
         function submitPoll() {
-            // Get user input
             const name = document.getElementById('name').value;
             const animal = document.getElementById('animal').value;
 
-            // Create a data object to send in the POST request
             const data = {
                 name: name,
                 animal: animal
             };
 
-            // Send a POST request to your backend server
             fetch('http://your-backend-server-url/submit', {
                 method: 'POST',
                 headers: {
@@ -47,7 +106,6 @@
             })
             .then(response => response.json())
             .then(result => {
-                // Handle the response from the backend here
                 document.getElementById('userName').textContent = name;
                 document.getElementById('userAnimal').textContent = animal;
                 document.getElementById('result').style.display = 'block';
